@@ -3438,16 +3438,16 @@ static void gui_network_start()
 
 static void gui_display_loadscreen()
 {
-	centerNextWindow();
+/*	centerNextWindow();
 	ImGui::SetNextWindowSize(ScaledVec2(330, 180));
 
     if (ImGui::Begin("##loading", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize))
     {
 		ImguiStyleVar _(ImGuiStyleVar_FramePadding, ScaledVec2(20, 10));
 		ImGui::AlignTextToFramePadding();
-		ImGui::SetCursorPosX(uiScaled(20.f));
+		ImGui::SetCursorPosX(uiScaled(20.f));*/
 		try {
-			const char *label = gameLoader.getProgress().label;
+/*			const char *label = gameLoader.getProgress().label;
 			if (label == nullptr)
 			{
 				if (gameLoader.ready())
@@ -3455,7 +3455,7 @@ static void gui_display_loadscreen()
 				else
 					label = "Loading...";
 			}
-
+*/
 			if (gameLoader.ready())
 			{
 				if (NetworkHandshake::instance != nullptr)
@@ -3466,12 +3466,12 @@ static void gui_display_loadscreen()
 				else
 				{
 					gui_setState(GuiState::Closed);
-					ImGui::Text("%s", label);
+//					ImGui::Text("%s", label);
 				}
 			}
 			else
 			{
-				ImGui::Text("%s", label);
+/*				ImGui::Text("%s", label);
 				{
 					ImguiStyleColor _(ImGuiCol_PlotHistogram, ImVec4(0.557f, 0.268f, 0.965f, 1.f));
 					ImGui::ProgressBar(gameLoader.getProgress().progress, ImVec2(-1, uiScaled(20.f)), "");
@@ -3481,7 +3481,7 @@ static void gui_display_loadscreen()
 				ImGui::SetCursorPosX((currentwidth - uiScaled(100.f)) / 2.f + ImGui::GetStyle().WindowPadding.x);
 				ImGui::SetCursorPosY(uiScaled(126.f));
 				if (ImGui::Button("Cancel", ScaledVec2(100.f, 0)))
-					gameLoader.cancel();
+					gameLoader.cancel();*/
 			}
 		} catch (const FlycastException& ex) {
 			ERROR_LOG(BOOT, "%s", ex.what());
@@ -3490,8 +3490,8 @@ static void gui_display_loadscreen()
 #endif
 			gui_stop_game(ex.what());
 		}
-    }
-    ImGui::End();
+/*    }
+    ImGui::End();*/
 }
 
 void gui_display_ui()
