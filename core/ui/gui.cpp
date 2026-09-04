@@ -1241,7 +1241,7 @@ static bool checkUWPProtocolActivation()
 
 static void gui_display_loadscreen()
 {
-	drawBoxartBackground();
+	/* drawBoxartBackground();
 	centerNextWindow();
 	ImGui::SetNextWindowSize(ScaledVec2(330, 0));
 	ImGui::SetNextWindowBgAlpha(0.8f);
@@ -1251,9 +1251,9 @@ static void gui_display_loadscreen()
     {
 		ImguiStyleVar _(ImGuiStyleVar_FramePadding, ScaledVec2(20, 10));
 		ImGui::AlignTextToFramePadding();
-		ImGui::SetCursorPosX(uiScaled(20.f));
+		ImGui::SetCursorPosX(uiScaled(20.f)); */
 		try {
-			const char *label = gameLoader.getProgress().label;
+			/* const char *label = gameLoader.getProgress().label;
 			if (label == nullptr)
 			{
 				if (gameLoader.ready())
@@ -1261,7 +1261,7 @@ static void gui_display_loadscreen()
 				else
 					label = T("Loading...");
 			}
-			
+			*/
 			const bool customTexPreloading = custom_texture.isPreloading();
 
 			if (gameLoader.ready() && !customTexPreloading)
@@ -1274,12 +1274,12 @@ static void gui_display_loadscreen()
 				else
 				{
 					gui_setState(GuiState::Closed);
-					ImGui::Text("%s", label);
+					// ImGui::Text("%s", label);
 				}
 			}
 			else
 			{
-				int texLoaded = 0;
+				/* int texLoaded = 0;
 				int texTotal = 0;
 				size_t loaded_size_b = 0;
 				custom_texture.getPreloadProgress(texLoaded, texTotal, loaded_size_b);
@@ -1312,7 +1312,7 @@ static void gui_display_loadscreen()
 				float currentwidth = ImGui::GetContentRegionAvail().x;
 				ImGui::SetCursorPosX((currentwidth - uiScaled(100.f)) / 2.f + ImGui::GetStyle().WindowPadding.x);
 				if (ImGui::Button(T("Cancel"), ScaledVec2(100.f, 0)))
-					gameLoader.cancel();
+					gameLoader.cancel(); */
 			}
 		} catch (const FlycastException& ex) {
 			ERROR_LOG(BOOT, "%s", ex.what());
@@ -1321,8 +1321,8 @@ static void gui_display_loadscreen()
 #endif
 			gui_stop_game(ex.what());
 		}
-    }
-    ImGui::End();
+    /* }
+    ImGui::End(); */
 }
 
 void gui_display_ui()
